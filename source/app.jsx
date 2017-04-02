@@ -2,26 +2,54 @@ import { Component } from "React";
 import React from "React"
 import ReactDOM from "react-dom";
 
-import * as Field from "./Actions/Field";
+// Actions
+import * as Actions from "./Actions"
+
+// Components
+import Header from "./View/Header";
+import Card from "./View/Card";
+import Screen from "./View/Screen";
+import Buttons from "./View/Buttons"
+
+// State
+import * as Init from "./Init";
 
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.handleField = Field.handle.bind(this);
-
-    this.state = {field: "Type stuff hell yeah"};
+    
+    Actions.set(this);
+    this.state = Init.state;
   }
 
   render() {
+    const { 
+      cardPosition,
+      screen,
+      calculation
+    } = this.state;
+
+    console.log("SCREEN", screen)
+    console.log(calculation);
+
     return (
-      <div className="card middle">
-        <input
-          className="field"
-          value={this.state.field}
-          onChange={this.handleField}
+      <Card position={cardPosition}>
+        <Header 
+          handleMouseDown={ this.headerMouseDown } 
+          handleMouseUp={ this.headerMouseUp }
+          handleMouseMove={ this.headerMouseMove }
         />
-      </div>
+        <Screen content={ screen } />
+        <Buttons
+          numberHandler={ 
+            this.makeNumberHandler(this, calculation)
+          }
+          operationHandler= { 
+            this.makeOperationHandler(this, calculation)
+          }
+        />
+      </Card>
     );
   }
 }
