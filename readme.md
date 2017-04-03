@@ -1,15 +1,13 @@
 # HI THERE
 
-This is my 
+This is a
 
-# React Gulp Browserify Boilerplate
-
-Its basically a template of a React app how I would like to make it, with the dependencies I would like to use. Maybe it has the dependencies you would like to use too.
+# Calculator
 
 How to get going..
 ```
-> git clone https://github.com/Chadtech/react-gulp-browserify-boilerplate new-project
-> cd new-project
+> git clone https://github.com/Chadtech/Ct-Calculator.git
+> cd Ct-Calculator
 > npm install
 > gulp
 
@@ -23,14 +21,30 @@ dist/                     -- Your production-ready app
 development/              -- Your development app
   index.html
 source/                   -- Source files
-  app.jsx                 
+  app.jsx  
+  Actions.jsx
+  Init.jsx               
   Actions/
-    Field.jsx
+    Buttons.jsx
+    Header.jsx
+    Keyboard.jsx
+  Api/
+    post-calculation.jsx
+    root.jsx
   Styles/
     Main.styl          
-    point.styl
-    input-field.styl
+    *.styl
+  View/
+    Button.jsx
+    Buttons.jsx
+    Card.jsx
+    Header.jsx
+    Screen.jsx
+    ToolBar.jsx
 server/
   app.js
+  api.js
+  calculate.js
+  router.js
 gulpFile.js
 
