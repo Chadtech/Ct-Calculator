@@ -17,10 +17,10 @@ then open up http://localhost:2980
 
 This repo is organized as ..
 ```
-dist/                     -- Your production-ready app
-development/              -- Your development app
+dist/                     
+development/              
   index.html
-source/                   -- Source files
+source/                
   app.jsx  
   Actions.jsx
   Init.jsx               
@@ -47,4 +47,4 @@ server/
   calculate.js
   router.js
 gulpFile.js
-
+```
