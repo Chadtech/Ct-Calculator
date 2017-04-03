@@ -65,6 +65,10 @@ export default function(app) {
         app.submitCalculation();
         break;
 
+      case 67 :
+        app.clearCalculation();
+        break;
+
     }
   }
 }
