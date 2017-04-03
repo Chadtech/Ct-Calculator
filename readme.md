@@ -11,8 +11,9 @@ How to get going..
 > npm install
 > gulp
 
-then open up http://localhost:2980
 ```
+then open up http://localhost:2980
+
 
 
 This repo is organized as ..
