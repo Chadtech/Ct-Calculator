@@ -10,8 +10,6 @@ export default class Screen extends Component {
   render() {
     const content = determineContent(this.props);
 
-    console.log("content is", content);
-
     return( 
       <div className="screen">
         <p> { content } </p>
@@ -26,5 +24,5 @@ function determineContent({content}) {
     return "0.0";
   }
 
-  return content
+  return content.slice(0, 16);
 }

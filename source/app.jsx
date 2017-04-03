@@ -9,7 +9,8 @@ import * as Actions from "./Actions"
 import Header from "./View/Header";
 import Card from "./View/Card";
 import Screen from "./View/Screen";
-import Buttons from "./View/Buttons"
+import Buttons from "./View/Buttons";
+import ToolBar from "./View/ToolBar";
 
 // State
 import * as Init from "./Init";
@@ -24,34 +25,39 @@ class App extends Component {
   }
 
   render() {
-    const { 
-      cardPosition,
-      screen,
-      calculation
-    } = this.state;
+    const { cardPosition, screen, showCalculator } = this.state;
 
-    console.log("SCREEN", screen)
-    console.log(calculation);
+    var calculator;
+
+    if (this.state.showCalculator) {
+      calculator = 
+        <Card position={cardPosition}>
+          <Header 
+            handleMouseDown={ this.headerMouseDown } 
+            handleMouseUp={ this.headerMouseUp }
+            handleMouseMove={ this.headerMouseMove }
+            close={ this.close }
+          />
+          <Screen content={ screen } />
+          <Buttons
+            numberHandler={ this.makeNumberHandler }
+            operationHandler={ this.makeOperationHandler }
+            submitCalculation={ this.submitCalculation }
+            clearCalculation={ this.clearCalculation }
+          />
+        </Card>
+
+    } else {
+      calculator = <span/>;
+    }
 
     return (
-      <Card position={cardPosition}>
-        <Header 
-          handleMouseDown={ this.headerMouseDown } 
-          handleMouseUp={ this.headerMouseUp }
-          handleMouseMove={ this.headerMouseMove }
-        />
-        <Screen content={ screen } />
-        <Buttons
-          numberHandler={ 
-            this.makeNumberHandler(this, calculation)
-          }
-          operationHandler= { 
-            this.makeOperationHandler(this, calculation)
-          }
-        />
-      </Card>
+      <div className="main">
+        {calculator}
+        <ToolBar showCalculator={ showCalculator }/>
+      </div>
     );
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("main"));
+ReactDOM.render(<App />, document.getElementById("root"));

@@ -23,7 +23,7 @@ gulp.task("js", function() {
     debug: true,
     cache: {},
     extensions: [".jsx"]
-  }).transform("babelify", {presets: ["es2015", "react"]})
+  }).transform("babelify", { presets: ["es2015", "react"] })
 
 
   return b

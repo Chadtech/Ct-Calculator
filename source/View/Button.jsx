@@ -13,7 +13,7 @@ export default class Button extends Component {
     return (
       <div
         className="button"
-        onClick={handleClick}
+        onClick={ handleClick }
       >
         <p> { label } </p>
       </div>

@@ -1,22 +1,20 @@
-export function makeNumberHandler(app, calculation) {
-  return function(number) {
-    return function() {
-      const content = insertNumber(number, calculation);
+import post from "../Api/post-calculation";
 
-      console.log("content in action", content)
 
-      app.setState({
-        calculation: calculation,
-        screen: content
-      });
-    }
+export function makeNumberHandler(number) {
+  return () => {
+    const content = insertNumber(number, this.state.calculation);
+
+    this.setState({
+      calculation: this.state.calculation,
+      screen: content
+    });
   }
 }
 
 
 function insertNumber(number, calculation) {
   if (calculation.then === "=") {
-    const number_ = calculation.number + number;
     calculation.number = calculation.number + number;
     return calculation.number;
   } else {
@@ -25,16 +23,14 @@ function insertNumber(number, calculation) {
 } 
 
 
-export function makeOperationHandler(app, calculation) {
-  return function(operation) {
-    return function(){
-      insertOperation(operation, calculation);
+export function makeOperationHandler(operation) {
+  return () => {
+    insertOperation(operation, this.state.calculation);
 
-      app.setState({
-        calculation: calculation,
-        screen: ""
-      })
-    }
+    this.setState({
+      calculation: this.state.calculation,
+      screen: ""
+    });
   }
 }
 
@@ -47,6 +43,22 @@ function insertOperation(operation, calculation) {
       then: "="
     } 
   } else {
-    insertOperation(operation, calculation.then)
+    insertOperation(operation, calculation.then);
   }
+}
+
+
+export function submitCalculation() {
+  post(this);
+}
+
+
+export function clearCalculation() {
+  this.setState({
+    screen: "",
+    calculation: {
+      number: "",
+      then: "="
+    }
+  });
 }

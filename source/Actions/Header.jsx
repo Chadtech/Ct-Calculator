@@ -59,3 +59,10 @@ export function handleMouseMove(event) {
     });  
   }
 }
+
+
+export function close() {
+  this.setState({
+    showCalculator: false
+  });
+}

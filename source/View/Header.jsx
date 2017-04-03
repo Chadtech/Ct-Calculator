@@ -14,7 +14,8 @@ export default class Header extends Component {
     const { 
       handleMouseDown,
       handleMouseUp,
-      handleMouseMove
+      handleMouseMove,
+      close
     } = this.props;
 
     return (
@@ -25,6 +26,12 @@ export default class Header extends Component {
         onMouseMove={ handleMouseMove }
       >
         <p> Calculator </p>
+        <div 
+          className="button close"
+          onClick={ close }
+        >
+          <p> x </p>
+        </div>
       </div>
     );
   }

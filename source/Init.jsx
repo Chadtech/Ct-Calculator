@@ -1,4 +1,5 @@
 export const state = {
+  showCalculator: true,
   cardPosition: { 
     x: (window.innerWidth / 2) - 200,
     y: (window.innerHeight / 2) - 250
@@ -24,15 +25,15 @@ export const state = {
 // { number : string
 // , then : 
 //     "=" or 
-//     { operation : "*" or "|" or "+" or "-"
+//     { operation : "*" or "/" or "+" or "-"
 //     , number: string
 //     , then :
 //         "=" or 
-//         { operation : "*" or "|" or "+" or "-"
+//         { operation : "*" or "/" or "+" or "-"
 //         , number: string
 //         , then :
 //             "=" or
-//             { operation : "*" or "|" or "+" or "-"
+//             { operation : "*" or "/" or "+" or "-"
 //             , number: string
 //             , then :
 //                 ...

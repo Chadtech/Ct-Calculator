@@ -1,15 +1,71 @@
 .button
-    width 84px
-    height 84px
+    width 42px
+    height 42px
     border-top 2px solid ignorable1
     border-left 2px solid ignorable1
     border-right 2px solid ignorable3
     border-bottom 2px solid ignorable3
-    margin-top 4px
-    margin-left 4px
+    margin-top 2px
+    margin-left 2px
     float left
     text-align center
     vertical-align middle
+    
+    &.tool-bar-item
+        border-top 2px solid ignorable3
+        border-left 2px solid ignorable3
+        border-right 2px solid ignorable1
+        border-bottom 2px solid ignorable1
+        height 24px
+        width 170px
+        float left
+        
+        &.out 
+            border-top 2px solid ignorable1
+            border-left 2px solid ignorable1
+            border-right 2px solid ignorable3
+            border-bottom 2px solid ignorable3
+        
+        &.clock
+            background backgroundx2
+            float right
+            margin-right 2px
+            width 250px
+
+        p
+            color pointColor
+            padding 0
+            margin 0
+            margin-top 3px
+
+    
+    &.start
+        margin-top 2px
+        margin-left 2px
+        float left
+        height 24px
+        width 70px
+        
+        p
+            color pointColor
+            padding 0
+            margin 0
+            margin-top 3px
+    
+    &.close
+        position absolute
+        top 2px
+        right 4px
+        width 24px
+        height 24px
+        background ignorable2
+        
+        p
+            color pointColor
+            padding 0
+            margin 0
+            margin-top 1px
+            margin-left 1px
     
     &:active
         border-top 2px solid ignorable3
@@ -21,9 +77,9 @@
             color pointier
         
     p
-        font-size 6em
+        font-size 2em
         margin 0 auto
-        margin-top 15px
+        margin-top 12px
         -webkit-touch-callout none /* iOS Safari */
         -webkit-user-select none /* Safari */
         -khtml-user-select none /* Konqueror HTML */
@@ -33,5 +89,8 @@
         cursor pointer
 
 .buttons-container
-    margin-left 16px
-    margin-top 12px
+    margin-left 8px
+    margin-top 6px
+    
+
+    
